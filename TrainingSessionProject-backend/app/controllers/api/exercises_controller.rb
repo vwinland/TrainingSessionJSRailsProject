@@ -2,5 +2,40 @@ class Api::V1::ExercisesController < ApplicationController
     def index 
         @exercies = Exercise.all
         
-        render json: @notes, status: 200 
+        render json: @exercises, status: 200 
+    end
+
+    def show 
+        @exercise = Exercise.find(params[:id])
+
+        render json: @exercise, status 200
+    end
+
+    def create #add in validation later
+        @exercise = Exercise.create(exercise_params) 
+
+        render json: @exercise, status 200
+    end
+
+    def update #add in validation later
+        @exercise = Exercise.find(params[:id])
+        @exercise.update(exercise_params)
+        render json: @exercise, status 200
+    end
+
+    def destroy
+        @exercise = Exercise.find(params[:id])
+        exercise.delete
+
+        render json: {noteId: @note.id}
+    end
+
+
+
+    #whitelist params
+    private  
+        def exercise_params
+            params.require(:exercise).permit(:name, :type)
+        end
 end
+
