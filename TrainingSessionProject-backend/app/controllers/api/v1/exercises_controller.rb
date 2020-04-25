@@ -1,6 +1,6 @@
 class Api::V1::ExercisesController < ApplicationController
     def index 
-        @exercies = Exercise.all
+        @exercises = Exercise.all
         
         render json: @exercises, status: 200 
     end
@@ -8,19 +8,19 @@ class Api::V1::ExercisesController < ApplicationController
     def show 
         @exercise = Exercise.find(params[:id])
 
-        render json: @exercise, status 200
+        render json: @exercise, status: 200
     end
 
     def create #add in validation later
         @exercise = Exercise.create(exercise_params) 
 
-        render json: @exercise, status 200
+        render json: @exercise, status: 200
     end
 
     def update #add in validation later
         @exercise = Exercise.find(params[:id])
         @exercise.update(exercise_params)
-        render json: @exercise, status 200
+        render json: @exercise, status:200
     end
 
     def destroy
