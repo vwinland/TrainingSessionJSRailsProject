@@ -7,15 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Exercise.create([
-    { name: 'lunges', type: 'legs'},
-    { name: 'pushups', type: 'arms'},
-    { name: 'squats', type: 'legs'},
-    { name: 'dumbell presses', type: 'back'},
-    { name: 'dumbell rows', type: 'chest'},
-    { name: 'single-leg deadlifts', type: 'back'},
-    { name: 'burpees', type: 'full-body'},
-    { name: 'side-planks', type: 'core'},
-    { name: 'situps', type: 'core'},
-    { name: 'glute bridge', type: 'glute'},
+    { name: 'lunges'},
+    { name: 'pushups'},
+    { name: 'squats'}
+    
 
 ])
