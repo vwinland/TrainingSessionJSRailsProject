@@ -27,7 +27,7 @@ class Api::V1::ExercisesController < ApplicationController
         @exercise = Exercise.find(params[:id])
         exercise.delete
 
-        render json: {noteId: @note.id}
+        render json: {exerciseId: @exercise.id}
     end
 
 
