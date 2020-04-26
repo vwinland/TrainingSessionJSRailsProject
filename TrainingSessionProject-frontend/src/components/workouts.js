@@ -11,7 +11,7 @@ class Workouts {
         this.adapter
             .getWorkouts()
             .then(workouts => {
-                return console.log(workouts)
+                workouts.forEach(workout => this.workouts.push(workout))
             })
             .then(() => {
                 this.render()
@@ -20,5 +20,6 @@ class Workouts {
     render() {
         const workoutsContainer = document.getElementById('workouts-container')
         workoutsContainer.innerHTML = "my workouts here"
+        console.log('my workouts are', this.workouts)
     }
 }
