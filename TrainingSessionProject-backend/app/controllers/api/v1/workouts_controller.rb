@@ -1,4 +1,4 @@
-class Api::V1::WorkoutSessionsController < ApplicationController
+class Api::V1::WorkoutsController < ApplicationController
     def index 
         @workouts = Workout.all
         
@@ -14,7 +14,7 @@ class Api::V1::WorkoutSessionsController < ApplicationController
     def create #add in validation later
         @workout = Workout.create(workout_params) 
 
-        render json: @workout status: 200
+        render json: @workout, status: 200
     end
 
     def update #add in validation later
