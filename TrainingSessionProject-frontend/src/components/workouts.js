@@ -18,6 +18,7 @@ class Workouts {
             })
     }
     render() {
-        console.log('rendering...')
+        const workoutsContainer = document.getElementById('workouts-container')
+        workoutsContainer.innerHTML = "my workouts here"
     }
 }
