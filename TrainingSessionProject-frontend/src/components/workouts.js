@@ -8,8 +8,16 @@ class Workouts {
 
     //makes a call to backend api, then displays workouts
     fetchAndLoadWorkouts() {
-        this.adapter.getWorkouts().then(workouts => {
-            console.log(workouts)
-        })
+        this.adapter
+            .getWorkouts()
+            .then(workouts => {
+                return console.log(workouts)
+            })
+            .then(() => {
+                this.render()
+            })
+    }
+    render() {
+        console.log('rendering...')
     }
 }
