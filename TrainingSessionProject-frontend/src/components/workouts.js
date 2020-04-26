@@ -20,6 +20,5 @@ class Workouts {
     render() {
         const workoutsContainer = document.getElementById('workouts-container')
         workoutsContainer.innerHTML = "my workouts here"
-        console.log('my workouts are', this.workouts)
     }
 }
