@@ -4,3 +4,5 @@ fetch(`${BACKEND_URL}/test`)
     .then(parsedResponse => console.log(parsedResponse));
 
 console.log("testing...")
+
+const app = new App()
