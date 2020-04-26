@@ -11,7 +11,8 @@ class Workouts {
         this.adapter
             .getWorkouts()
             .then(workouts => {
-                workouts.forEach(workout => this.workouts.push(workout))
+                workouts.forEach(workout => this.workouts.push(new Workout(workout)))
+                console.log(this.workouts)
             })
             .then(() => {
                 this.render()

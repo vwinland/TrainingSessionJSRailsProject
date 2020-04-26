@@ -1,5 +1,5 @@
 class Workout {
-    constructor() {
+    constructor(workoutJSON) {
         this.id = workoutJSON.id
         this.name = workoutJSON.name
     }

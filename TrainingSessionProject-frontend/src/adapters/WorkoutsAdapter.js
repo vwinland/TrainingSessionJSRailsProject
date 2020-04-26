@@ -4,8 +4,7 @@ class WorkoutsAdapter {
     }
 
     getWorkouts() {
-        return fetch(this.baseURL).then(res => res.json()
-        )
+        return fetch(this.baseURL).then(res => res.json())
     }
 }
 
