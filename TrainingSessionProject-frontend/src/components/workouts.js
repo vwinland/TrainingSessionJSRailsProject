@@ -19,9 +19,7 @@ class Workouts {
             })
     }
     render() {
-        const workoutsString = this.workouts.map(workout => `<li>${workout.name}</li>`).join('')
-        console.log(workoutsString)
         const workoutsContainer = document.getElementById('workouts-container')
-
+        workoutsContainer.innerHTML = this.workouts.map(workout => `<li>${workout.name}</li>`).join('')
     }
 }
