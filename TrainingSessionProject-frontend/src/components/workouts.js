@@ -6,7 +6,7 @@ class Workouts {
         this.fetchAndLoadWorkouts()
     }
 
-    //dont want to cache the dom every time. invoke workouts constructor that way dont need to try and always grab dom element each time it renders, it will save it into this property
+    //dont want to cache the dom every time. invoke workouts constructor that way we dont need to try and always grab dom element each time it renders, it will save it into this property
     initBindingAndEventListeners() {
         this.workoutsContainer = document.getElementById("workouts-container")
     }
@@ -25,6 +25,6 @@ class Workouts {
     }
     render() {
         const workoutsContainer = document.getElementById('workouts-container')
-        workoutsContainer.innerHTML = this.workouts.map(workout => `<li>${workout.name}</li>`).join('')
+        workoutsContainer.innerHTML = this.workouts.map(workout => workout.renderLi()).join('')
     }
 }
