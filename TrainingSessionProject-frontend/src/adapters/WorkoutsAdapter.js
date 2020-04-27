@@ -13,7 +13,10 @@ class WorkoutsAdapter {
         }
         return fetch(this.baseURL, {
             method: 'POST',
-            name: JSON.stringify({ workout })
+            headers: {
+                'content-type': 'application/json'
+            },
+            name: JSON.stringify({ workout }),
         })
     }
 }
