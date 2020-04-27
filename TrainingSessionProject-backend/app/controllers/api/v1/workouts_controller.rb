@@ -6,24 +6,26 @@ class Api::V1::WorkoutsController < ApplicationController
     end
 
     def show 
-        @workout= Workout.find(params[:id])
+        @workout = Workout.find(params[:id])
 
         render json: @workout, status: 200
     end
 
     def create #add in validation later
-        @workout = Workout.create
-
+    
+        @workout = Workout.create(workout_params)
         render json: @workout, status: 200
     end
 
     def update #add in validation later
         @workout = Workout.find(params[:id])
+        @workout.update
+        render json: @workout, status: 200
     end
 
     def destroy
         @workout = Workout.find(params[:id])
-        workout.delete
+        @workout.delete
 
         render json: {workoutId: @workout.id}
     end
@@ -31,9 +33,9 @@ class Api::V1::WorkoutsController < ApplicationController
 
 
     #whitelist params
-    #private  
-     #   def workout_params
-      #      params.require(:workout.permit(:name))
-       # end
+    private  
+     def workout_params
+       params.require(:workout).permit(:name)
+    end
 end
 

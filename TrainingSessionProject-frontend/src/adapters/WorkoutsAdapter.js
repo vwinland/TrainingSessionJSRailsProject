@@ -1,23 +1,23 @@
 class WorkoutsAdapter {
     constructor() {
-        this.baseURL = 'http://localhost:3000/api/v1/workouts'
+        this.baseUrl = 'http://localhost:3000/api/v1/workouts'
     }
 
     getWorkouts() {
-        return fetch(this.baseURL).then(res => res.json())
+        return fetch(this.baseUrl).then(res => res.json())
     }
 
     createWorkout(value) {
         const workout = {
             name: value,
         }
-        return fetch(this.baseURL, {
+
+        return fetch(this.baseUrl, {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
             },
-            name: JSON.stringify({ workout }),
-        })
+            body: JSON.stringify({ workout }),
+        }).then(res => res.json())
     }
 }
-

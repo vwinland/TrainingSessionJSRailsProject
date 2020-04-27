@@ -2,39 +2,42 @@ class Workouts {
     constructor() {
         this.workouts = []
         this.adapter = new WorkoutsAdapter()
-        this.initBindingAndEventListeners()
+        this.initBindingsAndEventListeners()
         this.fetchAndLoadWorkouts()
     }
 
-    //dont want to cache the dom every time. invoke workouts constructor that way we dont need to try and always grab dom element each time it renders, it will save it into this property
-    initBindingAndEventListeners() {
+    initBindingsAndEventListeners() {
         this.workoutsContainer = document.getElementById('workouts-container')
+        this.name = document.querySelector('name')
         this.newWorkoutName = document.getElementById('new-workout-name')
         this.workoutForm = document.getElementById('new-workout-form')
-        this.workoutForm.addEventListener('submit', this.createWorkout.bind(this))//every time form is submitted, make sure to bind the 'this' to notes when we execute createNote
+        this.workoutForm.addEventListener('submit', this.createWorkout.bind(this))
+
     }
 
     createWorkout(e) {
         e.preventDefault()
         const value = this.newWorkoutName.value
 
-        this.adapter.createWorkout(value)
+        this.adapter.createWorkout(value).then(workout => {
+            this.workouts.push(new Workout(workout))
+            this.newWorkoutName.value = ''
+            this.render()
+        })
     }
 
-    //makes a call to backend api, then displays workouts
     fetchAndLoadWorkouts() {
         this.adapter
             .getWorkouts()
             .then(workouts => {
                 workouts.forEach(workout => this.workouts.push(new Workout(workout)))
-                console.log(this.workouts)
             })
             .then(() => {
                 this.render()
             })
     }
+
     render() {
-        const workoutsContainer = document.getElementById('workouts-container')
-        workoutsContainer.innerHTML = this.workouts.map(workout => workout.renderLi()).join('')
+        this.workoutsContainer.innerHTML = this.workouts.map(workout => workout.renderLi()).join('')
     }
 }

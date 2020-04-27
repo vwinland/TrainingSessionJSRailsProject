@@ -35,7 +35,7 @@ class Api::V1::ExercisesController < ApplicationController
     #whitelist params
     private  
         def exercise_params
-            params.require(:exercise).permit(:name, :type)
+            params.require(:exercise).permit(:name)
         end
 end
 
