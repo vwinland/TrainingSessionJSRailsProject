@@ -16,7 +16,9 @@ class Workouts {
 
     createWorkout(e) {
         e.preventDefault()
-        console.log(this.newWorkoutName.value)
+        const value = this.newWorkoutName.value
+
+        this.adapter.createWorkout(value)
     }
 
     //makes a call to backend api, then displays workouts

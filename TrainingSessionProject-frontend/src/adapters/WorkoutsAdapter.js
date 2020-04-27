@@ -6,5 +6,15 @@ class WorkoutsAdapter {
     getWorkouts() {
         return fetch(this.baseURL).then(res => res.json())
     }
+
+    createWorkout(value) {
+        const workout = {
+            name: value
+        }
+        return fetch(this.baseURL, {
+            method: 'POST',
+            name: JSON.stringify({ workout })
+        })
+    }
 }
 
