@@ -8,7 +8,14 @@ class Workouts {
 
     //dont want to cache the dom every time. invoke workouts constructor that way we dont need to try and always grab dom element each time it renders, it will save it into this property
     initBindingAndEventListeners() {
-        this.workoutsContainer = document.getElementById("workouts-container")
+        this.workoutsContainer = document.getElementById('workouts-container')
+        this.workoutForm = document.getElementById('new-workout-form')
+        this.workoutForm.addEventListener('submit', this.createWorkout)
+    }
+
+    createWorkout(e) {
+        e.preventDefault()
+        console.log("workout is being created")
     }
 
     //makes a call to backend api, then displays workouts
