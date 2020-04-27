@@ -9,7 +9,7 @@ class WorkoutsAdapter {
 
     createWorkout(value) {
         const workout = {
-            name: value
+            name: value,
         }
         return fetch(this.baseURL, {
             method: 'POST',
