@@ -2,8 +2,13 @@ class Workouts {
     constructor() {
         this.workouts = []
         this.adapter = new WorkoutsAdapter()
-        //this.bindEventListeners()
+        this.initBindingAndEventListeners()
         this.fetchAndLoadWorkouts()
+    }
+
+    //dont want to cache the dom every time. invoke workouts constructor that way dont need to try and always grab dom element each time it renders, it will save it into this property
+    initBindingAndEventListeners() {
+        this.workoutsContainer = document.getElementById("workouts-container")
     }
 
     //makes a call to backend api, then displays workouts
