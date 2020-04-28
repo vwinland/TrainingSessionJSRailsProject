@@ -12,9 +12,7 @@ class Workouts {
         this.newWorkoutName = document.getElementById('new-workout-name')
         this.workoutForm = document.getElementById('new-workout-form')
         this.workoutForm.addEventListener('submit', this.createWorkout.bind(this))
-        this.workoutsContainer.addEventListener('dblclick', function () {
-            console.log('double clicked')
-        })
+        this.workoutsContainer.addEventListener('dblclick', this.handleWorkoutClick.bind(this))
     }
 
     createWorkout(e) {
@@ -26,6 +24,10 @@ class Workouts {
             this.newWorkoutName.value = ''
             this.render()
         })
+    }
+
+    handleWorkoutClick(e) {
+        console.log(e.target)
     }
 
     fetchAndLoadWorkouts() {
