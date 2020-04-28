@@ -29,6 +29,7 @@ class Workouts {
     handleWorkoutClick(e) {
         const li = e.target
         li.contentEditable = true
+        li.focus()
         li.classList.add('editable')
     }
 
