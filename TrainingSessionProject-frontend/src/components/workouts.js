@@ -27,7 +27,8 @@ class Workouts {
     }
 
     handleWorkoutClick(e) {
-        console.log(e.target)
+        const li = e.target
+        li.contentEditable = true
     }
 
     fetchAndLoadWorkouts() {
