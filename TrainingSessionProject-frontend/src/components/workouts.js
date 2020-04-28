@@ -8,11 +8,12 @@ class Workouts {
 
     initBindingsAndEventListeners() {
         this.workoutsContainer = document.getElementById('workouts-container')
-        this.name = document.querySelector('name')
+        this.name = document.querySelector('workout-name')
         this.newWorkoutName = document.getElementById('new-workout-name')
         this.workoutForm = document.getElementById('new-workout-form')
         this.workoutForm.addEventListener('submit', this.createWorkout.bind(this))
         this.workoutsContainer.addEventListener('dblclick', this.handleWorkoutClick.bind(this))
+        this.workoutsContainer.addEventListener('blur', this.updateWorkout.bind(this), true)
     }
 
     createWorkout(e) {
@@ -31,6 +32,10 @@ class Workouts {
         li.contentEditable = true
         li.focus()
         li.classList.add('editable')
+    }
+
+    updateWorkout() {
+        console.log('updating ')
     }
 
     fetchAndLoadWorkouts() {
