@@ -41,6 +41,7 @@ class Workouts {
     const li = e.target;
     li.contentEditable = false;
     li.classList.remove("editable");
+    const newValue = li.innerHTML;
   }
 
   fetchAndLoadWorkouts() {
