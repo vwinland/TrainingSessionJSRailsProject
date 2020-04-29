@@ -37,8 +37,10 @@ class Workouts {
     li.classList.add("editable");
   }
 
-  updateWorkout() {
-    console.log("updating ");
+  updateWorkout(e) {
+    const li = e.target;
+    li.contentEditable = false;
+    li.classList.remove("editable");
   }
 
   fetchAndLoadWorkouts() {
