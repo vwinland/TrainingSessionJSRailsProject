@@ -1,10 +1,10 @@
 class Workout {
-    constructor(workoutJSON) {
-        this.id = workoutJSON.id
-        this.name = workoutJSON.name
-    }
+  constructor(workoutJSON) {
+    this.id = workoutJSON.id;
+    this.name = workoutJSON.name;
+  }
 
-    renderLi() {
-        return `<li>${this.name}</li>`
-    }
+  renderLi() {
+    return `<li> data-workoutId=${this.id}>${this.name}</li>`;
+  }
 }

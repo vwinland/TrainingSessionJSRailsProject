@@ -25,8 +25,9 @@ class WorkoutsAdapter {
     const workout = {
       name: value,
     };
-    return fetch(`${this.baseUrl}/id`, {
-      method: "PATCH ",
+
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
