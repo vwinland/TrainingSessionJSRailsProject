@@ -1,55 +1,60 @@
 class Workouts {
-    constructor() {
-        this.workouts = []
-        this.adapter = new WorkoutsAdapter()
-        this.initBindingsAndEventListeners()
-        this.fetchAndLoadWorkouts()
-    }
+  constructor() {
+    this.workouts = [];
+    this.adapter = new WorkoutsAdapter();
+    this.initBindingsAndEventListeners();
+    this.fetchAndLoadWorkouts();
+  }
 
-    initBindingsAndEventListeners() {
-        this.workoutsContainer = document.getElementById('workouts-container')
-        this.name = document.querySelector('workout-name')
-        this.newWorkoutName = document.getElementById('new-workout-name')
-        this.workoutForm = document.getElementById('new-workout-form')
-        this.workoutForm.addEventListener('submit', this.createWorkout.bind(this))
-        this.workoutsContainer.addEventListener('dblclick', this.handleWorkoutClick.bind(this))
-        this.workoutsContainer.addEventListener('blur', this.updateWorkout.bind(this), true)
-    }
+  initBindingsAndEventListeners() {
+    this.workoutsContainer = document.getElementById("workouts-container");
+    this.name = document.querySelector("body");
+    this.newWorkoutName = document.getElementById("new-workout-name");
+    this.workoutForm = document.getElementById("new-workout-form");
+    this.workoutForm.addEventListener("submit", this.createWorkout.bind(this));
+    this.workoutsContainer.addEventListener(
+      "dblclick",
+      this.handleWorkoutClick.bind(this)
+    );
+    this.name.addEventListener("blur", this.updateWorkout.bind(this), true);
+  }
 
-    createWorkout(e) {
-        e.preventDefault()
-        const value = this.newWorkoutName.value
+  createWorkout(e) {
+    e.preventDefault();
+    const value = this.newWorkoutName.value;
 
-        this.adapter.createWorkout(value).then(workout => {
-            this.workouts.push(new Workout(workout))
-            this.newWorkoutName.value = ''
-            this.render()
-        })
-    }
+    this.adapter.createWorkout(value).then((workout) => {
+      this.workouts.push(new Workout(workout));
+      this.newWorkoutName.value = "";
+      this.render();
+    });
+  }
 
-    handleWorkoutClick(e) {
-        const li = e.target
-        li.contentEditable = true
-        li.focus()
-        li.classList.add('editable')
-    }
+  handleWorkoutClick(e) {
+    const li = e.target;
+    li.contentEditable = true;
+    li.focus();
+    li.classList.add("editable");
+  }
 
-    updateWorkout() {
-        console.log('updating ')
-    }
+  updateWorkout() {
+    console.log("updating ");
+  }
 
-    fetchAndLoadWorkouts() {
-        this.adapter
-            .getWorkouts()
-            .then(workouts => {
-                workouts.forEach(workout => this.workouts.push(new Workout(workout)))
-            })
-            .then(() => {
-                this.render()
-            })
-    }
+  fetchAndLoadWorkouts() {
+    this.adapter
+      .getWorkouts()
+      .then((workouts) => {
+        workouts.forEach((workout) => this.workouts.push(new Workout(workout)));
+      })
+      .then(() => {
+        this.render();
+      });
+  }
 
-    render() {
-        this.workoutsContainer.innerHTML = this.workouts.map(workout => workout.renderLi()).join('')
-    }
+  render() {
+    this.workoutsContainer.innerHTML = this.workouts
+      .map((workout) => workout.renderLi())
+      .join("");
+  }
 }
