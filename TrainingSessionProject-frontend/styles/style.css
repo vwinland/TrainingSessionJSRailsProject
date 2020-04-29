@@ -1,101 +1,60 @@
-.hero {
-    /* Sizing */
-    width: 100vw;
-    height: 100vh;
-    
-    /* Flexbox stuff */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    /* Text styles */
-    text-align: center;
-    color: white; 
-    
-    /* Background styles */
-    background-image: url('https://i.imgur.com/5tlj8S3.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.hero h1 {
-    /* Text styles */
-    font-size: 5em;
-    
-    /* Margins */
-    margin-top: 0;
-    margin-bottom: 0.5em;
-}
-
-.hero .btn {
-    /* Positioning and sizing */
-    display: block;
-    width: 200px;
-    
-    /* Padding and margins */
-    padding: 1em;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Text styles */
-    color: white; /* CHANGE THIS LINE */
-    text-decoration: none;
-    font-size: 1.5em;
-    
-    /* Border styles */
-    border: 3px solid white; /* CHANGE THIS LINE */
-    border-radius: 20px;
-}
-
-/*index.erb */
-
-header img {
-    height: 80px;
-    margin-left: 40px;
-}
 body {
-    
-    height: 125vh;
-    background-image: url('https://i.imgur.com/6lEco1J.jpg?1');
-    background-size: cover;
-    font-family: sans-serif;
-    margin-top: 80px;
-    padding: 30px;
+  /*background-image: url("https://i.imgur.com/6lEco1J.jpg?1");*/
+  background-size: auto;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  line-height: 1.6em;
+  font-size: 1.3em;
+  margin-top: 80px;
+  padding: 30px;
 }
 
 main {
-    color: white;
+  color: white;
 }
 
 header {
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 0 25px 0 black;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 25px 0 black;
 }
 
-header * {
-    display: inline;
+a {
+  color: #097659;
 }
 
-header li {
-    margin: 20px;
+input {
+  font-size: 1.5em;
 }
 
-header li a {
-    color: black;
-    text-decoration: none;
+.container {
+  width: 960px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.delete-workout-link {
+  color: red;
 }
 
 .editable {
-    border: 1px solid black;
-    padding: 20px;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+#workouts-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px;
 }
