@@ -19,7 +19,7 @@ class Api::V1::WorkoutsController < ApplicationController
 
     def update #add in validation later
         @workout = Workout.find(params[:id])
-        @workout.update
+        @workout.update(workout_params)
         render json: @workout, status: 200
     end
 

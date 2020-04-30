@@ -17,7 +17,7 @@ class WorkoutsAdapter {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ workout }),
+      name: JSON.stringify({ workout }),
     }).then((res) => res.json());
   }
 
@@ -26,12 +26,12 @@ class WorkoutsAdapter {
       name: value,
     };
 
-    return fetch(`${this.baseUrl}/${id}`, {
+    return fetch(`${this.baseUrl}/id`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ workout }),
+      name: JSON.stringify({ workout }),
     }).then((res) => res.json());
   }
 }

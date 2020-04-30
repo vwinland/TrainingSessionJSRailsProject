@@ -5,6 +5,6 @@ class Workout {
   }
 
   renderLi() {
-    return `<li> data-workoutId=${this.id}>${this.name}</li>`;
+    return `<li data-workoutId=${this.id}>${this.name}</li>`;
   }
 }
