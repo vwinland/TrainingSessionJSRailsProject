@@ -1,6 +1,6 @@
 class WorkoutsAdapter {
   constructor() {
-    this.baseUrl = "http://localhost:3000/api/v1/workouts";
+    this.baseUrl = "http://localhost:3000/workouts";
   }
 
   getWorkouts() {
@@ -17,7 +17,7 @@ class WorkoutsAdapter {
       headers: {
         "content-type": "application/json",
       },
-      name: JSON.stringify({ workout }),
+      body: JSON.stringify({ workout }),
     }).then((res) => res.json());
   }
 
@@ -26,12 +26,12 @@ class WorkoutsAdapter {
       name: value,
     };
 
-    return fetch(`${thzxsder54ris.baseUrl}/${id}`, {
+    return fetch(`${this.baseUrl}/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      name: JSON.stringify({ workout }),
+      body: JSON.stringify({ workout }),
     }).then((res) => res.json());
   }
 }
