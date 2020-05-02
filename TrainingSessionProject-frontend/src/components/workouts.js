@@ -42,6 +42,7 @@ class Workouts {
     li.contentEditable = false;
     li.classList.remove("editable");
     const newValue = li.innerHTML;
+    const id = li.dataset.id;
     this.adapter.updateWorkout(newValue, id);
   }
 
