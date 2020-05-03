@@ -54,7 +54,9 @@ class Workouts {
     this.adapter
       .getWorkouts()
       .then((workouts) => {
-        workouts.forEach((workout) => this.workouts.push(new Workout(workout)));
+        workouts
+          .sort((a, b) => a.id - b.id)
+          .forEach((workout) => this.workouts.push(new Workout(workout)));
       })
       .then(() => {
         this.render();
