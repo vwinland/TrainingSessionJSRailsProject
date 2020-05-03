@@ -31,6 +31,10 @@ class Workouts {
   }
 
   handleWorkoutClick(e) {
+    this.toggleWorkout(e);
+  }
+
+  toggleWorkout(e) {
     const li = e.target;
     li.contentEditable = true;
     li.focus();
