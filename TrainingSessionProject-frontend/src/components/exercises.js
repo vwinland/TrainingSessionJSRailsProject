@@ -1,14 +1,14 @@
-class Exercises {
-  constructor() {
-    this.exercises = [];
-    this.adapter = new ExercisesAdapter();
-    //this.bindEventListeners();
-    this.fetchAndLoadExercises();
-  }
+// class Exercises {
+//   constructor() {
+//     this.exercises = [];
+//     this.adapter = new ExercisesAdapter();
+//     //this.bindEventListeners();
+//     this.fetchAndLoadExercises();
+//   }
 
-  fetchAndLoadExercises() {
-    this.adapter.getExercises().then((exercises) => {
-      console.log(exercises);
-    });
-  }
-}
+//   fetchAndLoadExercises() {
+//     this.adapter.getExercises().then((exercises) => {
+//       console.log(exercises);
+//     });
+//   }
+// }
